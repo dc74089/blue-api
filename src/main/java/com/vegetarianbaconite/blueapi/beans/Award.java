@@ -19,6 +19,11 @@ public class Award {
         this.year = year;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s, given to %s at %s", name, recipient, event_key);
+    }
+
     public String getName() {
         return name;
     }

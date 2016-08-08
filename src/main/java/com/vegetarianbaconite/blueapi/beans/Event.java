@@ -32,6 +32,11 @@ public class Event implements Serializable {
         this.start_date = start_date;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s: %s", key, name);
+    }
+
     public String getDate() {
         return start_date;
     }

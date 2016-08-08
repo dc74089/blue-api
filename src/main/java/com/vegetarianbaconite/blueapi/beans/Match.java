@@ -42,6 +42,33 @@ public class Match {
 
     }
 
+    @Override
+    public String toString() {
+        String compLevelString;
+        switch (comp_level) {
+            case "qm":
+                compLevelString = "qualifier";
+                break;
+            case "ef":
+                compLevelString = "Einstein Final";
+                break;
+            case "qf":
+                compLevelString = "Quarter Final";
+                break;
+            case "sf":
+                compLevelString = "Semi Final";
+                break;
+            case "f":
+                compLevelString = "Final";
+                break;
+            default:
+                compLevelString = "Unknown Competition Level";
+                break;
+        }
+
+        return String.format("%s match number %d at %s", compLevelString, match_number, event_key);
+    }
+
     public boolean hasFinished() {
         return (this.alliances.red.getScore() != 0 || this.alliances.blue.getScore() != 0);
     }

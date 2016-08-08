@@ -26,6 +26,11 @@ public class Team implements Serializable {
         this.rookie_year = rookie_year;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%d: %s", team_number, nickname);
+    }
+
     public String getMotto() {
         return motto;
     }
