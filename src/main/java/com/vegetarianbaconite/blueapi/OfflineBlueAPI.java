@@ -13,8 +13,8 @@ import java.util.List;
 import java.util.Map;
 
 public class OfflineBlueAPI {
-    Gson g = new Gson();
-    OfflineData data;
+    private Gson g = new Gson();
+    private OfflineData data;
 
     public OfflineBlueAPI(FileReader input) {
         try {
@@ -29,10 +29,10 @@ public class OfflineBlueAPI {
     }
 
     public static class CacheBuilder {
-        int cacheYear;
-        Boolean cacheTeams, cacheEvents, cacheMatches;
-        OfflineData data;
-        SyncronousBlueAPI api;
+        private int cacheYear;
+        private Boolean cacheTeams, cacheEvents, cacheMatches;
+        private OfflineData data;
+        private SyncronousBlueAPI api;
 
         public CacheBuilder(String publisher, String app, String version) {
             cacheYear = Calendar.getInstance().get(Calendar.YEAR);
@@ -97,6 +97,10 @@ public class OfflineBlueAPI {
 
             return data;
         }
+    }
+
+    public OfflineData getRawData() {
+        return data;
     }
 
     public Team getTeam(Integer teamNo) {
