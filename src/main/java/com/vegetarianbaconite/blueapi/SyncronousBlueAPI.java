@@ -41,6 +41,14 @@ public class SyncronousBlueAPI {
         return new ArrayList<>(Arrays.asList(teams));
     }
 
+    public List<Team> getAllTeams() {
+        ArrayList<Team> teams = new ArrayList<>();
+        for (int i = 0; i < 16; i++) {
+            teams.addAll(getTeamPage(i));
+        }
+        return teams;
+    }
+
     public Team getTeam(int teamNum) {
         return g.fromJson(sendRequest("team/frc" + teamNum), Team.class);
     }
@@ -80,8 +88,8 @@ public class SyncronousBlueAPI {
         return g.fromJson(sendRequest("event/" + year + event), Event.class);
     }
 
-    public Event getEvent(String fullEventKey) {
-        return g.fromJson(sendRequest("event/" + fullEventKey), Event.class);
+    public Event getEvent(String eventKey) {
+        return g.fromJson(sendRequest("event/" + eventKey), Event.class);
     }
 
     public List<Team> getEventTeams(int year, String event) {
@@ -89,8 +97,18 @@ public class SyncronousBlueAPI {
         return new ArrayList<>(Arrays.asList(teams));
     }
 
+    public List<Team> getEventTeams(String eventKey) {
+        Team[] teams = g.fromJson(sendRequest("event/" + eventKey + "/teams"), Team[].class);
+        return new ArrayList<>(Arrays.asList(teams));
+    }
+
     public List<Match> getEventMatches(int year, String event) {
         Match[] matches = g.fromJson(sendRequest("event/" + year + event + "/matches"), Match[].class);
+        return new ArrayList<>(Arrays.asList(matches));
+    }
+
+    public List<Match> getEventMatches(String eventKey) {
+        Match[] matches = g.fromJson(sendRequest("event/" + eventKey + "/matches"), Match[].class);
         return new ArrayList<>(Arrays.asList(matches));
     }
 
