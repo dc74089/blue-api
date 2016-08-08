@@ -79,7 +79,7 @@ public class OfflineBlueAPI {
                 Map<String, Event> map = new HashMap<>();
                 for (int i = cacheYear; i <= Calendar.getInstance().get(Calendar.YEAR); i++) {
                     System.out.println(i);
-                    for (Event e : api.getAllEvents(cacheYear)) {
+                    for (Event e : api.getAllEvents(i)) {
                         map.put(e.getKey(), e);
                     }
                 }
@@ -87,10 +87,14 @@ public class OfflineBlueAPI {
             }
 
             if (cacheMatches) {
-                System.out.println("Caching Matches");
+                System.out.println("Caching Matches (this will take awhile)");
                 Map<String, List<Match>> keyMatchListMap = new HashMap<>();
                 for (Event e : data.getEvents().values()) {
-                    keyMatchListMap.put(e.getKey(), api.getEventMatches(e.getKey()));
+                    System.out.println(e.getKey());
+                    try {
+                        keyMatchListMap.put(e.getKey(), api.getEventMatches(e.getKey()));
+                    } catch (NullPointerException ignored) {
+                    }
                 }
                 data.setMatches(keyMatchListMap);
             }
