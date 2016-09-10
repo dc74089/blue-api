@@ -33,7 +33,7 @@ public class AsyncBlueAPI {
 
         @Override
         public void onResponse(Call call, Response response) throws IOException {
-            requester.onResponse(response);
+            requester.onResponse(response.body().string());
         }
     };
 
