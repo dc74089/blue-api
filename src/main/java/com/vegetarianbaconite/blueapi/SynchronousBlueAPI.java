@@ -66,6 +66,15 @@ public class SynchronousBlueAPI {
         }
     }
 
+    public List<Event> getTeamEvents(int team, int year) {
+        try {
+            Event[] events = g.fromJson(sendRequest("team/frc" + team + "/" + year + "/events"), Event[].class);
+            return new ArrayList<>(Arrays.asList(events));
+        } catch (JsonSyntaxException e) {
+            return new ArrayList<>(); //If team doesn't exist, return an empty List
+        }
+    }
+
     public List<Award> getTeamEventAwards(int team, String event) {
         Award[] awards = g.fromJson(sendRequest("team/frc" + team + "/event/" + event + "/awards"), Award[].class);
         return new ArrayList<>(Arrays.asList(awards));

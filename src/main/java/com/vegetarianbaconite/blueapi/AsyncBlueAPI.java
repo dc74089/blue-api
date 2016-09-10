@@ -56,6 +56,10 @@ public class AsyncBlueAPI {
         sendRequest("team/frc" + team + "/events");
     }
 
+    public void getTeamEvents(int team, int year) {
+        sendRequest("team/frc" + team + "/" + year + "/events");
+    }
+
     public void getTeamEventAwards(int team, String event) {
         sendRequest("team/frc" + team + "/event/" + event + "/awards");
     }
