@@ -9,14 +9,14 @@ import okhttp3.Request;
 import java.io.IOException;
 import java.util.*;
 
-public class SyncronousBlueAPI {
+public class SynchronousBlueAPI {
     private static final String PREFIX = "http://www.thebluealliance.com/api/v2/";
     private static final String HEADER_KEY = "X-TBA-App-Id";
     private static final Gson g = new Gson();
     private final OkHttpClient c = new OkHttpClient();
     private String HEADER_VALUE;
 
-    public SyncronousBlueAPI(String publisher, String app, String version){
+    public SynchronousBlueAPI(String publisher, String app, String version) {
         HEADER_VALUE = publisher + ":" + app + ":" + version;
     }
 
