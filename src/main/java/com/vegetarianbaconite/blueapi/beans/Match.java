@@ -7,6 +7,7 @@ public class Match {
     String event_key;
     Alliances alliances;
     int match_number;
+    ScoreBreakdown score_breakdown;
 
     public class Alliances {
         Alliance red;
@@ -160,5 +161,13 @@ public class Match {
 
     public void setMatchNumber(int match_number) {
         this.match_number = match_number;
+    }
+
+    public void setScoreBreakdown(ScoreBreakdown score_breakdown) {
+        this.score_breakdown = score_breakdown;
+    }
+
+    public ScoreBreakdown getScoreBreakdown() {
+        return score_breakdown;
     }
 }

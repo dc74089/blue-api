@@ -86,6 +86,15 @@ public class SynchronousBlueAPI {
     }
 
     /*
+     * Match Requests
+     */
+
+    public Match getMatch(String comp, String match) {
+        Match m = g.fromJson(sendRequest("match/" + comp + "_" + match), Match.class);
+        return m;
+    }
+
+    /*
      * Event Requests
      */
     public List<Event> getAllEvents(int year) {

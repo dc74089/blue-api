@@ -69,6 +69,14 @@ public class AsyncBlueAPI {
     }
 
     /*
+     * Match Requests
+     */
+
+    public void getMatch(String comp, String match) {
+        sendRequest("match/" + comp + "_" + match);
+    }
+
+    /*
      * Event Requests
      */
     public void getAllEvents(int year) {
