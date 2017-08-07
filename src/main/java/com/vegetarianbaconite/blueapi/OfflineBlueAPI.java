@@ -69,7 +69,7 @@ public class OfflineBlueAPI {
                 System.out.println("Caching Teams");
                 Map<Integer, Team> teamMap = new HashMap<>();
                 for (Team t : api.getAllTeams()) {
-                    teamMap.put(t.getTeamNumber(), t);
+                    teamMap.put(t.getTeam_number(), t);
                 }
                 data.setTeams(teamMap);
             }
