@@ -4,24 +4,11 @@ public class Award {
     String name;
     int award_type;
     String event_key;
-    String recipient;
+    Recipient recipients[];
     int year;
 
     public Award() {
 
-    }
-
-    public Award(String name, int award_type, String event, String recipient, int year) {
-        this.name = name;
-        this.award_type = award_type;
-        this.event_key = event;
-        this.recipient = recipient;
-        this.year = year;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("%s, given to %s at %s", name, recipient, event_key);
     }
 
     public String getName() {
@@ -32,28 +19,28 @@ public class Award {
         this.name = name;
     }
 
-    public int getAwardType() {
+    public int getAward_type() {
         return award_type;
     }
 
-    public void setAwardType(int award_type) {
+    public void setAward_type(int award_type) {
         this.award_type = award_type;
     }
 
-    public String getEvent() {
+    public String getEvent_key() {
         return event_key;
     }
 
-    public void setEvent(String event) {
-        this.event_key = event;
+    public void setEvent_key(String event_key) {
+        this.event_key = event_key;
     }
 
-    public String getRecipient() {
-        return recipient;
+    public Recipient[] getRecipients() {
+        return recipients;
     }
 
-    public void setRecipient(String recipient) {
-        this.recipient = recipient;
+    public void setRecipients(Recipient[] recipients) {
+        this.recipients = recipients;
     }
 
     public int getYear() {
@@ -62,5 +49,29 @@ public class Award {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public class Recipient {
+        String team_key;
+        String awardee;
+
+        public Recipient() {
+        }
+
+        public String getTeam_key() {
+            return team_key;
+        }
+
+        public void setTeam_key(String team_key) {
+            this.team_key = team_key;
+        }
+
+        public String getAwardee() {
+            return awardee;
+        }
+
+        public void setAwardee(String awardee) {
+            this.awardee = awardee;
+        }
     }
 }

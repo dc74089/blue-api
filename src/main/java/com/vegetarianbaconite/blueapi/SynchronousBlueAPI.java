@@ -10,14 +10,14 @@ import java.io.IOException;
 import java.util.*;
 
 public class SynchronousBlueAPI {
-    private static final String PREFIX = "http://www.thebluealliance.com/api/v2/";
-    private static final String HEADER_KEY = "X-TBA-App-Id";
+    private static final String PREFIX = "http://www.thebluealliance.com/api/v3/";
+    private static final String HEADER_KEY = "X-TBA-Auth-Key";
     private static final Gson g = new Gson();
     private final OkHttpClient c = new OkHttpClient();
     private String HEADER_VALUE;
 
-    public SynchronousBlueAPI(String publisher, String app, String version) {
-        HEADER_VALUE = publisher + ":" + app + ":" + version;
+    public SynchronousBlueAPI(String apiKey) {
+        HEADER_VALUE = apiKey;
     }
 
     private String sendRequest(String urlBody) {

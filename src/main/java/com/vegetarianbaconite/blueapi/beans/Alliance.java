@@ -2,14 +2,10 @@ package com.vegetarianbaconite.blueapi.beans;
 
 public class Alliance {
     int score;
-    String[] teams;
+    String[] team_keys;
+    String[] surrogate_team_keys;
 
     public Alliance() {
-    }
-
-    public Alliance(int score, String[] teams) {
-        this.score = score;
-        this.teams = teams;
     }
 
     public int getScore() {
@@ -20,16 +16,28 @@ public class Alliance {
         this.score = score;
     }
 
-    public String[] getTeams() {
-        return teams;
+    public String[] getTeam_keys() {
+        return team_keys;
     }
 
-    public void setTeams(String[] teams) {
-        this.teams = teams;
+    public void setTeam_keys(String[] team_keys) {
+        this.team_keys = team_keys;
+    }
+
+    public String[] getSurrogate_team_keys() {
+        return surrogate_team_keys;
+    }
+
+    public void setSurrogate_team_keys(String[] surrogate_team_keys) {
+        this.surrogate_team_keys = surrogate_team_keys;
     }
 
     public Boolean contains(String teamKey) {
-        for (String tk : teams) {
+        for (String tk : team_keys) {
+            if (tk.equals(teamKey)) return true;
+        }
+
+        for (String tk : surrogate_team_keys) {
             if (tk.equals(teamKey)) return true;
         }
 

@@ -3,41 +3,35 @@ package com.vegetarianbaconite.blueapi.beans;
 import java.util.HashMap;
 
 public class Stats {
-    public HashMap<Integer, Double> oprs;
-    public HashMap<Integer, Double> dprs;
-    public HashMap<Integer, Double> ccwms;
+    public HashMap<String, Double> oprs;
+    public HashMap<String, Double> dprs;
+    public HashMap<String, Double> ccwms;
 
     public Stats() {
 
     }
 
-    public Stats(HashMap<Integer, Double> oprs, HashMap<Integer, Double> dprs, HashMap<Integer, Double> ccwms) {
-        this.oprs = oprs;
-        this.dprs = dprs;
-        this.ccwms = ccwms;
-    }
-
-    public HashMap<Integer, Double> getOprs() {
+    public HashMap<String, Double> getOprs() {
         return oprs;
     }
 
-    public void setOprs(HashMap<Integer, Double> oprs) {
+    public void setOprs(HashMap<String, Double> oprs) {
         this.oprs = oprs;
     }
 
-    public HashMap<Integer, Double> getDprs() {
+    public HashMap<String, Double> getDprs() {
         return dprs;
     }
 
-    public void setDprs(HashMap<Integer, Double> dprs) {
+    public void setDprs(HashMap<String, Double> dprs) {
         this.dprs = dprs;
     }
 
-    public HashMap<Integer, Double> getCcwms() {
+    public HashMap<String, Double> getCcwms() {
         return ccwms;
     }
 
-    public void setCcwms(HashMap<Integer, Double> ccwms) {
+    public void setCcwms(HashMap<String, Double> ccwms) {
         this.ccwms = ccwms;
     }
 }

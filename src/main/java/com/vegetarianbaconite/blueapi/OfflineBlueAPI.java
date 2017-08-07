@@ -34,11 +34,11 @@ public class OfflineBlueAPI {
         private OfflineData data;
         private SynchronousBlueAPI api;
 
-        public CacheBuilder(String publisher, String app, String version) {
+        public CacheBuilder(String apiKey) {
             cacheYear = Calendar.getInstance().get(Calendar.YEAR);
             cacheTeams = cacheEvents = cacheMatches = false;
             data = new OfflineData();
-            api = new SynchronousBlueAPI(publisher, app, version);
+            api = new SynchronousBlueAPI(apiKey);
         }
 
         public CacheBuilder cacheFrom(int year) {

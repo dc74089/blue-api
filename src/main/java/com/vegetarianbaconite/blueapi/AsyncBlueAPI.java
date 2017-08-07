@@ -6,14 +6,14 @@ import java.io.IOException;
 
 public class AsyncBlueAPI {
     private static final String PREFIX = "http://www.thebluealliance.com/api/v2/";
-    private static final String HEADER_KEY = "X-TBA-App-Id";
+    private static final String HEADER_KEY = "X-TBA-Auth-Key";
     private static final OkHttpClient c = new OkHttpClient();
     private String HEADER_VALUE;
     private BlueRequester requester;
 
-    public AsyncBlueAPI(BlueRequester requester, String publisher, String app, String version) {
+    public AsyncBlueAPI(BlueRequester requester, String apiKey) {
         this.requester = requester;
-        HEADER_VALUE = publisher + ":" + app + ":" + version;
+        HEADER_VALUE = apiKey;
     }
 
     private void sendRequest(String urlBody) {
